@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  Environment:
+    Type: String
+    Default: DEV
+    AllowedValues:
+      - DEV
+      - TEST
+      - PROD
+Resources:
+  ec2VM:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      Parameters:
+        Environment: !Ref Environment
+      TemplateURL: https://listentolearn.s3.amazonaws.com/v3.yaml
+      TimeoutInMinutes: '5'
+Outputs:
+  StackRef:
+    Value: !Ref ec2VM

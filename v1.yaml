@@ -1,0 +1,9 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'A simple template to create a t2.micro EC2 instance in us-east-1 region'
+Resources:
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0533f2ba8a1995cf9 # Linux, N.Virginia - 64-bit x86
+      InstanceType: t2.micro
